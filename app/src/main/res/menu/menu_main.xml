@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/miCompose"
+        android:icon="@drawable/posts"
+        app:showAsAction="always"
+        android:title="Compose">
+    </item>
+    <item
+        android:visible="false"
+        android:id="@+id/miProfile"
+        android:icon="@drawable/ic_launcher"
+        app:showAsAction="ifRoom|withText"
+        android:title="Profile">
+    </item>
+    <item
+    android:visible="false"
+    android:id="@+id/itRecycler"
+    android:icon="@drawable/ic_launcher"
+    app:showAsAction="ifRoom|withText"
+    android:title="recycler">
+</item>
+    <item
+        android:visible="true"
+        android:id="@+id/itLogout"
+        android:icon="@drawable/logout"
+        app:showAsAction="ifRoom|withText"
+        android:title="recycler">
+    </item>
+</menu>

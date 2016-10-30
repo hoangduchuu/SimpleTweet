@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SimpleTweet</string>
+    <string name="login_label">Sign in with twitter</string>
+    <string name="lorem_text">Lorem ipsum dolor sit
+        amet, consectetur adipisicing elit. Corporis
+        consequuntur quas porro sint nobis nam, commod
+        i facilis molestias. Deleniti itaque repellat
+        provident, velit est sapiente minima tempore!
+        Necessitatibus, asperiores, quis!</string>
+    <string name="tweet_label">Tweet</string>
+    <string name="what_happen_label">What happen ???</string>
+
+</resources>
