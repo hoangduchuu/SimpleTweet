@@ -22,11 +22,12 @@ import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 
 public class PostTweetActivity extends AppCompatActivity {
-    private Button btnPostStatus;
     private RestClient restClient;
 
     @BindView(R.id.edtStatus)
     EditText edtStatus;
+    @BindView(R.id.btnPost)
+    Button btnPostStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +35,14 @@ public class PostTweetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_post_tweet);
 
         ButterKnife.bind(this);
-        getSupportActionBar().setTitle("what happen now?");
+        getSupportActionBar().setTitle(getString(R.string.post_title));
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         restClient = RestApplication.getRestClient();
 
-
-        btnPostStatus = (Button)findViewById(R.id.btnPost);
-
         clickPost();
-
     }
+
+
 
     private void clickPost() {
         btnPostStatus.setOnClickListener(new View.OnClickListener() {
@@ -72,20 +71,26 @@ public class PostTweetActivity extends AppCompatActivity {
     }
 
     private void postAction() {
-        restClient.postTweet(edtStatus.getText().toString(),
-                new JsonHttpResponseHandler(){
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        super.onSuccess(statusCode, headers, response);
-                    }
+        if (edtStatus.getText().length() > 140){
+            Toast.makeText(this, getString(R.string.to_long), Toast.LENGTH_SHORT).show();
+        }else{
+            restClient.postTweet(edtStatus.getText().toString(),
+                    new JsonHttpResponseHandler(){
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            super.onSuccess(statusCode, headers, response);
+                        }
 
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                        super.onFailure(statusCode, headers, responseString, throwable);
-                    }
-                });
-        Toast.makeText(getApplicationContext(), "Posted on Twitter", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(getApplicationContext(), TimelineActivity.class));
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                            super.onFailure(statusCode, headers, responseString, throwable);
+                        }
+                    });
+            Toast.makeText(getApplicationContext(), "Posted on Twitter", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getApplicationContext(), TimelineActivity.class));
+        }
+
+
     }
 
 }

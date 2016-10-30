@@ -11,5 +11,7 @@
         Necessitatibus, asperiores, quis!</string>
     <string name="tweet_label">Tweet</string>
     <string name="what_happen_label">What happen ???</string>
+    <string name="to_long">\"Your tweet too long, nobody read  \"</string>
+    <string name="post_title">Post a tweet</string>
 
 </resources>

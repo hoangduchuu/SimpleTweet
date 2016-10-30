@@ -34,7 +34,6 @@ dependencies {
     // Android Async Http for sending async network requests
     // DBFlow for simple persistence with an ORM
     apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
-
     compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
     compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
     compile 'com.google.code.gson:gson:1.7.2'
@@ -58,4 +57,5 @@ dependencies {
     compile 'com.android.support:design:25.0.0'
     compile 'com.jakewharton:butterknife:8.4.0'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'com.android.support:appcompat-v7:25.0.0'
 }
