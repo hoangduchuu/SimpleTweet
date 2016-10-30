@@ -49,7 +49,6 @@ public class PostTweetActivity extends AppCompatActivity {
         btnPostStatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 postAction();
             }
         });
@@ -57,20 +56,15 @@ public class PostTweetActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_post, menu);
         return true;
     }
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.miCompose:
-
-                return true;
-            case R.id.miProfile:
+            case R.id.itPosts:
                 postAction();
-                Intent i = new Intent(PostTweetActivity.this, TimelineActivity.class);
-                startActivity(i);
-                Toast.makeText(this, "click miProfile", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), TimelineActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -93,28 +87,6 @@ public class PostTweetActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Posted on Twitter", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getApplicationContext(), TimelineActivity.class));
     }
-
-//    private void limitText() {
-//        edtStatus.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//                Toast.makeText(PostTweetActivity.this, "before", Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//                Toast.makeText(PostTweetActivity.this, "On", Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//                int n = Integer.parseInt(s.toString());
-//                if (n > 100){
-//                    s.replace(0,s.length(),"100");
-//                }
-//            }
-//        });
-//    }
 
 }
 

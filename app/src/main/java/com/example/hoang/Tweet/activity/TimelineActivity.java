@@ -2,6 +2,7 @@ package com.example.hoang.Tweet.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -35,6 +36,8 @@ public class TimelineActivity extends AppCompatActivity {
     SwipeRefreshLayout swipeContainer;
     @BindView(R.id.pbLoarMore)
     ProgressBar progressBar;
+    @BindView(R.id.flPost)
+    FloatingActionButton fab;
 
     private RestClient restClient;
     private TweetAdapter adapter;
@@ -54,9 +57,46 @@ public class TimelineActivity extends AppCompatActivity {
         rView.setLayoutManager(linearLayoutManager);
         restClient = RestApplication.getRestClient();
         getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         getPost(15,1);
         loadmore();
         pullRefresh();
+        floatAction();
+
+    }
+
+    private void floatAction() {
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), PostTweetActivity.class);
+                startActivity(i);
+            }
+        });
+
+        // hide when scrooll
+        rView.addOnScrollListener(new RecyclerView.OnScrollListener(){
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy)
+            {
+                if (dy > 0 ||dy<0 && fab.isShown())
+                {
+                    fab.hide();
+                }
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState)
+            {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE)
+                {
+                    fab.show();
+                }
+
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
     }
 
     private void loadmore() {
@@ -79,6 +119,13 @@ public class TimelineActivity extends AppCompatActivity {
                 getPost(15,0);
             }
         });
+        swipeContainer.setColorSchemeResources(
+                android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light,
+                android.R.color.holo_purple,
+                android.R.color.holo_green_dark);
     }
 
     @Override
