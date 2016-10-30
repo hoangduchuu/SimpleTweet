@@ -52,41 +52,13 @@ public class RestClient extends OAuthBaseClient {
         params.put("page",curentPage);
         getClient().get(apiUrl,params, handler);
     }
-    public void getHomeTimeline2(int page, JsonHttpResponseHandler handler) {
-        String apiUrl = getApiUrl("statuses/home_timeline.json");
-        RequestParams params = new RequestParams();
-        params.put("page", String.valueOf(page));
-        getClient().get(apiUrl, params, handler);
-    }
 
-    public void removeTweet(String id, AsyncHttpResponseHandler handler){
-        String apiUrl = getApiUrl("collections/destroy.json");
-        RequestParams  params = new RequestParams();
-        params.put("id", id);
-        getClient().get(apiUrl, params,handler);
-    }
 
-    public void currentUser(String screen_name, AsyncHttpResponseHandler handler){
-        String apiUrl = getApiUrl("users/show.json");
-        RequestParams params = new RequestParams();
-        params.put("screen_name", screen_name);
-        getClient().get(apiUrl,null);
-    }
-
-    // RestClient.java
     public void postTweet(String body, AsyncHttpResponseHandler handler) {
         String apiUrl = getApiUrl("statuses/update.json");
         RequestParams params = new RequestParams();
         params.put("status", body);
         getClient().post(apiUrl, params, handler);
-    }
-
-    public void getHomeTimeline(int page, JsonHttpResponseHandler handler) {
-        String apiUrl = getApiUrl("statuses/home_timeline.json");
-        RequestParams params = new RequestParams();
-        params.put("page", String.valueOf(page));
-        getClient().get(apiUrl, params, handler);
-
     }
 
 
