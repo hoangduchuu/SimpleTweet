@@ -3,11 +3,14 @@ package com.example.hoang.Tweet.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hoang.Tweet.R;
@@ -86,12 +89,21 @@ public class PostTweetActivity extends AppCompatActivity {
                             super.onFailure(statusCode, headers, responseString, throwable);
                         }
                     });
-            Toast.makeText(getApplicationContext(), "Posted on Twitter", Toast.LENGTH_SHORT).show();
+            mToast("posted on Twitter");
             startActivity(new Intent(getApplicationContext(), TimelineActivity.class));
         }
-
-
     }
+
+    private void mToast(String msn) {
+        final View viewToast = LayoutInflater.from(this).inflate(R.layout.toast_layout, null);
+        ((TextView) viewToast.findViewById(R.id.tv_text)).setText(msn);
+        Toast toast = new Toast(PostTweetActivity.this);
+        toast.setView(viewToast);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
+        toast.show();
+    }
+
 
 }
 

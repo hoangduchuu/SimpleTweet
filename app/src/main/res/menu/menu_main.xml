@@ -14,18 +14,12 @@
         app:showAsAction="ifRoom|withText"
         android:title="Profile">
     </item>
-    <item
-    android:visible="false"
-    android:id="@+id/itRecycler"
-    android:icon="@drawable/ic_launcher"
-    app:showAsAction="ifRoom|withText"
-    android:title="recycler">
-</item>
+
     <item
         android:visible="true"
         android:id="@+id/itLogout"
         android:icon="@drawable/ic_logout"
-        app:showAsAction="ifRoom|withText"
-        android:title="recycler">
+        app:showAsAction="ifRoom|collapseActionView"
+        android:title="LogOut">
     </item>
 </menu>
