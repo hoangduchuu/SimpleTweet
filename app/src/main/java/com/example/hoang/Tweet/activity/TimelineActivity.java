@@ -8,14 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.hoang.Tweet.R;
 import com.example.hoang.Tweet.adapter.TweetAdapter;
@@ -66,8 +62,6 @@ public class TimelineActivity extends AppCompatActivity {
         loadmore();
         pullRefresh();
         floatAction();
-
-
 
     }
 
