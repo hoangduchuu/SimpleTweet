@@ -4,10 +4,11 @@
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryLight"
+    android:background="@color/windowBackground"
     tools:context="com.example.hoang.Tweet.activity.LoginActivity">
 
     <Button
+        android:textAllCaps="false"
         android:padding="10dp"
         android:textColor="@color/colorIcons"
         android:background="@drawable/login_button_bg"

@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">SimpleTweet</string>
-    <string name="login_label">Login with twitter</string>
+    <string name="login_label">Login with Twitter</string>
     <string name="lorem_text">Lorem ipsum dolor sit
         amet, consectetur adipisicing elit. Corporis
         consequuntur quas porro sint nobis nam, commod
